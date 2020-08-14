@@ -1,17 +1,19 @@
+now = Time.now
+
 RSpec.context 'parameterized spec' do
   before :each do
-    Timecop.freeze
+    Timecop.freeze(now)
   end
 
   after :each do
     Timecop.return
   end
 
-  subject { Time.now }
+  subject { now }
 
   where(:time) do
     [
-      [Time.now],
+      [now],
     ]
   end
 
